@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.devblocks.com/schema/plugin.xsd">
+	<id>wgm.stripe</id>
+	<name>Stripe.com Integration</name>
+	<description>This plugin provides integration with Stripe for payment processing functionality.  This plugin is intended to be a bridge used by other plugins to communicate with Stripe services.</description>
+	<author>Webgroup Media, LLC.</author>
+	<version>1.0</version>
+	<link>https://www.cerb.ai</link>
+	<image>plugin.png</image>
+ 
+ 	<!-- Requirements -->
+
+	<requires>
+		<app_version min="8.0" max="8.0.99" />
+		<php_extension name="curl" />
+	</requires>
+ 
+	<!-- Plugin Dependencies -->
+	
+	<dependencies>
+		<require plugin_id="cerberusweb.core" version="8.0.0" />
+	</dependencies>
+
+	<!-- Extensions -->
+ 
+	<extensions>
+
+		<!-- Service Providers -->
+		
+		<extension point="cerb.service.provider">
+			<id>wgm.stripe.service.provider</id>
+			<name>Stripe</name>
+			<class>
+				<file>api/App.php</file>
+				<name>ServiceProvider_Stripe</name>
+			</class>
+			<params>
+				<param key="contexts">
+					<value>
+						<data key="cerberusweb.contexts.app" />
+						<data key="cerberusweb.contexts.worker" />
+					</value>
+				</param>
+			</params>
+		</extension>
+		
+    </extensions> 
+</plugin>
