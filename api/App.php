@@ -4,7 +4,7 @@ class ServiceProvider_Stripe extends Extension_ServiceProvider implements IServi
 	const ID = 'wgm.stripe.service.provider';
 	
 	function renderConfigForm(Model_ConnectedAccount $account) {
-		$tpl = DevblocksPlatform::getTemplateService();
+		$tpl = DevblocksPlatform::services()->template();
 		$active_worker = CerberusApplication::getActiveWorker();
 		
 		$params = $account->decryptParams($active_worker);
